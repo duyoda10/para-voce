@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pergunta e Resposta</title>
+</head>
+<body>
+    <h1>Pergunta</h1>
+    <p>Qual é a sua altura?</p>
+
+    <h2>Resposta</h2>
+
+    <input type="text" id="resposta" placeholder="Digite sua altura em metros">
+    <br>
+
+    <button onclick="verificarResposta()">Verificar Resposta</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function verificarResposta() {
+            var altura = document.getElementById("resposta").value;
+
+            if (altura === "") {
+                document.getElementById("resultado").innerHTML = "Por favor, insira sua altura.";
+            } else {
+                altura = parseFloat(altura.replace(',', '.')); // Converte para número, substituindo ',' por '.' se necessário
+                if (!isNaN(altura)) {
+                    if (altura < 1.59) {
+                        document.getElementById("resultado").innerHTML = "Você é nanica.";
+                    } else if (altura >= 1.60) {
+                        document.getElementById("resultado").innerHTML = "Você é maior do que eu.";
+                    }
+                } else {
+                    document.getElementById("resultado").innerHTML = "Altura inválida. Por favor, insira uma altura válida em metros.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
