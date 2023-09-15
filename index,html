@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pergunta e Resposta</title>
+</head>
+<body>
+    <h1>Pergunta</h1>
+    <p>Qual é o seu nome?</p>
+
+    <h2>Resposta</h2>
+
+    <form id="form">
+        <input type="text" id="resposta" placeholder="Digite seu nome">
+        <br>
+
+        <button type="button" onclick="verificarResposta()">Verificar Resposta</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function verificarResposta() {
+            var nome = document.getElementById("resposta").value.trim().toLowerCase();
+
+            if (nome === "leticia") {
+                document.getElementById("resultado").innerHTML = "Errado, seu nome é nanica.";
+            } else {
+                document.getElementById("resultado").innerHTML = "Não existe!";
+            }
+        }
+    </script>
+</body>
+</html>
